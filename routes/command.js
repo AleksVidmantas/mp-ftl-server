@@ -9,11 +9,17 @@ wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
         if(message==="CMD_REQUEST"){
             if(cmdStack.length > 0){
-                console.log(cmdStack)
-                let cmd = cmdStack.shift();
-                cmd.curQueueSize = cmdStack.length;
-                console.log(cmd);
-                ws.send(JSON.stringify(cmd));
+                // console.log(cmdStack)
+                // let cmd = cmdStack.shift();
+                // cmd.curQueueSize = cmdStack.length;
+                // console.log(cmd);
+                // ws.send(JSON.stringify(cmd));
+                let msg = [];
+                for(let i = 0; i < cmdStack.length; i++){
+                    msg.push(cmdStack[i])
+                }
+                cmdStack = []
+                ws.send(JSON.stringify(msg))
             }else {
                 ws.send(JSON.stringify({status:"EMPTY"}))
             }
@@ -36,11 +42,19 @@ router.post('/', function(req,res){
 
 router.get('/', function(req, res){
     if(cmdStack.length > 0){
-        console.log(cmdStack)
-        let cmd = cmdStack.shift();
-        cmd.curQueueSize = cmdStack.length;
-        console.log(cmd);
-        res.send(cmd);
+        // console.log(cmdStack)
+        // let cmd = cmdStack.shift();
+        // cmd.curQueueSize = cmdStack.length;
+        // console.log(cmd);
+        // res.send(cmd);
+        let msg = [];
+        for(let i = 0; i < cmdStack.length; i++){
+            msg.push(cmdStack[i])
+        }
+        cmdStack = []
+            
+        
+        res.send(msg)
     }else {
         res.send({status:"EMPTY"})
     }
