@@ -10,7 +10,8 @@ function engineerPost(item){
 
     http.onreadystatechange = function() {//Call a function when the state changes.
         if(http.readyState == 4 && http.status == 200) {
-            alert(http.responseText);
+            // alert(http.responseText);
+            console.log(http.responseText);
         }
     }
     http.send(params);
