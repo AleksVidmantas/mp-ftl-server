@@ -30,7 +30,7 @@ wss.on('connection', function connection(ws) {
   
     // ws.send('something');
 });
-router.post('/', function(req,res){
+router.post('/log', function(req,res){
     console.log(req.body);
     req.body.queuePlace = cmdStack.length;
     
