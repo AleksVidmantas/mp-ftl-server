@@ -36,6 +36,32 @@ router.post('/', function(req,res){
     
     console.log("end post /command")
     cmdStack.push(req.body)
+    if(cmdStack.length > 0){
+        // console.log(cmdStack)
+        // let cmd = cmdStack.shift();
+        // cmd.curQueueSize = cmdStack.length;
+        // console.log(cmd);
+        // ws.send(JSON.stringify(cmd));
+        let msg = [];
+        for(let i = 0; i < cmdStack.length; i++){
+            msg.push(cmdStack[i])
+        }
+        cmdStack = []
+        // wss.connection.send(JSON.stringify(msg))
+        wss.clients.forEach(function each(client){
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(msg));
+            }
+        })
+    }else {
+        wss.clients.forEach(function each(client){
+            if (client.readyState === WebSocket.OPEN) {
+                wss.connection.send(JSON.stringify({status:"EMPTY"}))
+            }
+        })
+        
+    }
+    
     res.send({status:"Received"})
     // res.send(req)
 })
