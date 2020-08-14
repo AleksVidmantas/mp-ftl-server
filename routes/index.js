@@ -21,4 +21,8 @@ router.get('/weapons', function(req, res, next){
 router.get('/personnel', function(req,res,next){
   res.render('personnel');
 })
+
+router.post('/image', function(req,res,next){
+  res.send({status:"Recieved"})
+})
 module.exports = router;
