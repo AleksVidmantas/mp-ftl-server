@@ -27,9 +27,20 @@ router.post('/image', function(req,res,next){
   const form = formidable({multiples: true});
     
     form.parse(req, (err, fields, files) => {
-      console.log(files.fileToUpload.name);
+      console.log(files.fileToUpload);
+      files.fileToUpload.forEach(file => { //for each in case of multiple images
+            
+        // sharp()
+
+        //relocate image from tmp into project
+        fs.rename(file.path, './public/images/'+file.name, function (err) {
+            if (err) throw err;
+            
+        });
+      });
+      
     });
-  console.log(req);
+  
   res.send({status:"Recieved"})
 })
 module.exports = router;
