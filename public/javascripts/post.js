@@ -84,8 +84,8 @@ window.onload = function() {
 };
 
 function genericImgPost(type,command,e,imgForOffSet){
-    var x = e.pageX - imgForOffSet.offsetLeft;
-        var y = e.pageY - imgForOffSet.offsetTop;
+    var x = 1120+e.pageX - imgForOffSet.offsetLeft;
+        var y = 190+e.pageY - imgForOffSet.offsetTop;
         // alert("X Coordinate: " + x + " Y Coordinate: " + y);
 
         var http = new XMLHttpRequest();

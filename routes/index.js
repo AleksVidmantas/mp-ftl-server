@@ -1,3 +1,4 @@
+const sharp = require('sharp');
 var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
@@ -40,10 +41,17 @@ router.post('/image', function(req,res,next){
             
       });
 
-      fs.copyFile('./public/images/'+files.image.name, './public/images/'+"tactical_subpart", (err) => {
+      fs.copyFile('./public/images/'+files.image.name, './public/images/'+'weapon_subpart.png', (err) => {
         if (err) throw err;
-        console.log('source.txt was copied to destination.txt');
+          console.log(err);
+    //    console.log('source.txt was copied to destination.txt');
+        sharp('./public/images/'+files.image.name).extract({ width: 800, height: 890, left: 1120, top: 0 }).toFile('./public/images/weapon_subpart.png').then(function(new_file_info) {
+        console.log("Image cropped and saved");
+    })
+    .catch(function(err) {
+        console.log(err);
     });
+      });
     //  });
       
     });
