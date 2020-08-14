@@ -27,7 +27,7 @@ router.post('/image', function(req,res,next){
   const form = formidable({multiples: true});
     
     form.parse(req, (err, fields, files) => {
-      console.log(files) 
+      console.log(files.fileToUpload.name);
     });
   console.log(req);
   res.send({status:"Recieved"})
