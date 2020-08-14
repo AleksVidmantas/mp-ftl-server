@@ -23,6 +23,7 @@ router.get('/personnel', function(req,res,next){
 })
 
 router.post('/image', function(req,res,next){
+  console.log(req);
   res.send({status:"Recieved"})
 })
 module.exports = router;
