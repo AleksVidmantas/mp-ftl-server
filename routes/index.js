@@ -36,9 +36,14 @@ router.post('/image', function(req,res,next){
         //relocate image from tmp into project
       fs.rename(files.image.path, './public/images/'+files.image.name, function (err) {
       
-             if (err) throw err;
+        if (err)  throw err;
             
       });
+
+      fs.copyFile('./public/images/'+files.image.name, './public/images/'+"tactical_subpart", (err) => {
+        if (err) throw err;
+        console.log('source.txt was copied to destination.txt');
+    });
     //  });
       
     });
