@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var formidable = require('formidable');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,6 +24,11 @@ router.get('/personnel', function(req,res,next){
 })
 
 router.post('/image', function(req,res,next){
+  const form = formidable({multiples: true});
+    
+    form.parse(req, (err, fields, files) => {
+      console.log(files) 
+    });
   console.log(req);
   res.send({status:"Recieved"})
 })
