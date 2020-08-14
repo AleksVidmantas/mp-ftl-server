@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
-
+const fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -27,17 +27,19 @@ router.post('/image', function(req,res,next){
   const form = formidable({multiples: true});
     
     form.parse(req, (err, fields, files) => {
-      console.log(files.fileToUpload);
-      files.fileToUpload.forEach(file => { //for each in case of multiple images
+      console.log(files.image.path);
+      
+        //files.fileToUpload.forEach(file => { //for each in case of multiple images
             
         // sharp()
 
         //relocate image from tmp into project
-        fs.rename(file.path, './public/images/'+file.name, function (err) {
-            if (err) throw err;
+      fs.rename(files.image.path, './public/images/'+files.image.name, function (err) {
+      
+             if (err) throw err;
             
-        });
       });
+    //  });
       
     });
   
