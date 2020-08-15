@@ -61,7 +61,8 @@ function setActive(item,type){
             //determine if one or two cursors
             var params = "type="+type+"&command="+item.id+"&active="+activeBtns[0].id+"&posX="+mCoords[0][0]+"&posY="+mCoords[0][1];
             var activeCross2 = document.getElementById("active2");
-            
+            const canvasW = canvas.getBoundingClientRect().width;
+const canvasH = canvas.getBoundingClientRect().height;
             if(document.getElementById("beamlock").classList.contains("active") && activeCross2){
                 var params = "type="+type+"&command="+"beam"+item.id+"&active="+activeBtns[0].id+"&posX="+mCoords[0][0]+"&posY="+mCoords[0][1]+"&posX1="+mCoords[1][0]+"&posY1="+mCoords[1][1];
             }
@@ -392,10 +393,6 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
         mCoords[0][0] = xf;
         mCoords[0][1] = yf;
     }
-    console.log("canvas")
-    const canvasW = rect.width;
-const canvasH = rect.height;
-console.log(canvasW)
-console.log(canvasH)
+    
    
 }

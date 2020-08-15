@@ -7,7 +7,7 @@ canvas.height = 890;
 
 
 var background = new Image();
-background.src = "/images/weapon_subpart.png";
+background.src = "/images/weapon_subpart.png#" + new Date().getTime();
 
 // Make sure the image is loaded first otherwise nothing will draw.
 background.onload = function(){
