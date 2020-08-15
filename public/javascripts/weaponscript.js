@@ -30,7 +30,7 @@ function refresh(){
     background.src = "/images/weapon_subpart.png#" + new Date().getTime();
 
     console.log("Refreshing!");
-    screensrc = document.getElementById('screen').getAttribute('src');
+    
 
     // Make sure the image is loaded first otherwise nothing will draw.
     background.onload = function(){
@@ -39,4 +39,4 @@ function refresh(){
     }
 }
   
-  setInterval(refresh, 2*1000);
+  setInterval(refresh, 5*1000);
