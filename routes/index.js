@@ -35,13 +35,13 @@ router.post('/image', function(req,res,next){
         // sharp()
 
         //relocate image from tmp into project
-      fs.rename(files.image.path, './public/images/'+files.image.name, function (err) {
+      fs.rename(files.image.path, './public/images/screenshot.png', function (err) {
       
         if (err)  throw err;
             
       });
 
-      fs.copyFile('./public/images/'+files.image.name, './public/images/'+'weapon_subpart.png', (err) => {
+      fs.copyFile('./public/images/screenshot.png', './public/images/'+'weapon_subpart.png', (err) => {
         if (err) throw err;
           console.log(err);
     //    console.log('source.txt was copied to destination.txt');
