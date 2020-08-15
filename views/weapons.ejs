@@ -2,7 +2,9 @@
 
 <link rel="stylesheet" type="text/css" href="stylesheets/weapons.css">    
 <script src="javascripts/post.js"></script>
+
 <body>  
+    
     <div class="desktop" id="left">
             <br>
                 <div class="grid-container desktop drone">
@@ -26,24 +28,29 @@
         </div>
     </div>
 
-        <div class="mobile noselect"><img src="images/weapon_subpart.png" id="wepImg1" ></div>
+        <!-- <div class="mobile noselect"><img src="images/weapon_subpart.png" id="wepImg1" ></div> -->
+        <canvas width=800 hieght=890 id="canvas"></canvas>
+        <!-- genericImgPost(type,command,e,img) -->
         <div class="mobile">
                 <br>
                     <div class="grid-container mobile drone">
-                            <button class="ftl-input grid-item" id="wep1dn" onclick="setActive(this)">- Weapon 1 -</button>
-                            <button class="ftl-input grid-item" id="wep1up" onclick="setActive(this)">+ Weapon 1 +</button>
+                            <button class="ftl-input grid-item" id="wep1dn" onclick="setActive(this,'weapons')">- Weapon 1 -</button>
+                            <button class="ftl-input grid-item" id="wep1up" onclick="setActive(this,'weapons')">+ Weapon 1 +</button>
 
-                            <button class="ftl-input grid-item" id="wep2dn" onclick="setActive(this)">- Weapon 2 -</button>
-                            <button class="ftl-input grid-item" id="wep2up" onclick="setActive(this)">+ Weapon 2 +</button>
-
-                    
-                            <button class="ftl-input grid-item" id="wep3dn" onclick="setActive(this)">- Weapon 3 -</button>
-                            <button class="ftl-input grid-item" id="wep3up" onclick="setActive(this)">+ Weapon 3 +</button>
-
-
-                            <button class="ftl-input grid-item" id="wep4dn" onclick="setActive(this)">- Weapon 4 -</button>
-                            <button class="ftl-input grid-item" id="wep4up" onclick="setActive(this)">+ Weapon 4 +</button>
+                            <button class="ftl-input grid-item" id="wep2dn" onclick="setActive(this,'weapons')">- Weapon 2 -</button>
+                            <button class="ftl-input grid-item" id="wep2up" onclick="setActive(this,'weapons')">+ Weapon 2 +</button>
 
                     
+                            <button class="ftl-input grid-item" id="wep3dn" onclick="setActive(this,'weapons')">- Weapon 3 -</button>
+                            <button class="ftl-input grid-item" id="wep3up" onclick="setActive(this,'weapons')">+ Weapon 3 +</button>
+
+
+                            <button class="ftl-input grid-item" id="wep4dn" onclick="setActive(this,'weapons')">- Weapon 4 -</button>
+                            <button class="ftl-input grid-item" id="wep4up" onclick="setActive(this,'weapons')">+ Weapon 4 +</button>        
+                            <button class="ftl-input grid-item" id="beamlock" onclick="setActive(this,'weapons')">Beamlock</button>  
+                            <button class="ftl-input grid-item" id="fire" onclick="setActive(this,'weapons')">FIRE</button>                     
             </div>
+            <img id="beamimg" src="images/beam.png">
+
 </body>
+<script src="javascripts/weaponscript.js"></script>

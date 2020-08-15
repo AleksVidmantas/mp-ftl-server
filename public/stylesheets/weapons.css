@@ -45,6 +45,10 @@ color: #00B7FF;
         float:right;
         width:50%;
     }
+    .desktop img{
+        width:100%;
+        touch-action: manipulation;
+    }
 
 }
 
@@ -56,7 +60,7 @@ color: #00B7FF;
         border-style: solid;
         border-radius:0px;
         border-color:#63ffa4;
-        height:128px;
+        height:110px;
         font-size:48px;
         touch-action: manipulation;
         font-family:monospace;
@@ -75,6 +79,17 @@ color: #00B7FF;
         width:100%;
         touch-action: manipulation;
     }
+    img {
+        
+        overflow: hidden;
+        position: relative;
+        height: 170px;
+    }
+    canvas {
+        width:100%;
+        touch-action: manipulation;
+        overflow:hidden;
+    }
     .grid-container.activities {
         display: inline-grid;
         grid-template-columns: 33% 33% 33%;
@@ -88,6 +103,21 @@ color: #00B7FF;
     .desktop {
         display:none;
     }
+
+    #beamlock {
+        align-content: center;
+        color:rgb(146, 96, 96);
+    }
+    
+}
+
+.ftl-input.active {
+    background-color:#63ffa4;
+    color:#2b2b2b;
+}
+.ftl-input.active#beamlock {
+    background-color:#fcb628;
+    color:#2b2b2b;
 }
 
 .noSelect {
@@ -97,4 +127,12 @@ color: #00B7FF;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+.disable-css-transitions {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
