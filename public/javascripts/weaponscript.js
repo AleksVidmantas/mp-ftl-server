@@ -18,6 +18,11 @@ background.onload = function(){
         background.onload = function(){
             requestAnimationFrame(function(){
                 ctx.drawImage(background,0,0); 
+                ctx.save();
+                ctx.translate(beamVals[0],beamVals[1])
+                ctx.rotate(beamVals[2])
+                ctx.drawImage(beamComplete,0,0)
+                ctx.restore();
             })
         }
     }, 5*1000);

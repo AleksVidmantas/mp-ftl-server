@@ -180,6 +180,8 @@ window.onload = function() {
     
   
 };
+let beamVals = [0,0,0] //x,y, theta transformation for element to translate
+let beamComplete = ""//beam of artillery sighter, used in weaponscript
 let beamTop = 0
 let beamLeft = 0
 let mCoords = [[0,0],[0,0]]
@@ -279,7 +281,9 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
                 // Make sure the image is loaded first otherwise nothing will draw.
                 background.onload = function(){
                     element.drawImage(background,0,0);
-                    element.translate(beamLeft*ratioX, ratioX*beamTop)   
+                    element.translate(beamLeft*ratioX, ratioX*beamTop)  
+                    beamVals = [beamLeft*ratioX,ratioX*beamTop, theta]
+                    beamComplete = image 
                     console.log("Compare values, beamsLT, at time of draw bl and bt" + beamLeft + " " + beamTop + " | " + ex + " " + ey + "Canvas dat: xy" +element.width + " " + element.height)
                     
                 element.rotate(theta);
