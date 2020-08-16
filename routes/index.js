@@ -1,4 +1,5 @@
 const sharp = require('sharp');
+sharp.cache({ files : 0 });
 var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
