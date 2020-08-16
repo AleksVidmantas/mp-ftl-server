@@ -38,7 +38,7 @@ router.post('/image', function(req,res,next){
       fs.rename(files.image.path, './public/images/screenshot.png', function (err) {
       
         if (err)  throw err;
-        fs.unlink('path/subpartcopy.png', (err) => {
+        fs.unlink('./public/images/subpartcopy.png', (err) => {
           if (err) throw err;
           console.log('subpartcopy was deleted');
           
