@@ -38,7 +38,19 @@ router.post('/image', function(req,res,next){
       fs.rename(files.image.path, './public/images/screenshot.png', function (err) {
       
         if (err)  throw err;
-        
+        try {
+          fs.unlinkSync("./public/images/weapon_subpartcopy.png")
+          //file removed
+        } catch(err) {
+          console.error(err)
+        }
+
+        try {
+          fs.unlinkSync("./public/images/weapon_subpart.png")
+          //file removed
+        } catch(err) {
+          console.error(err)
+        }
             
       });
 
