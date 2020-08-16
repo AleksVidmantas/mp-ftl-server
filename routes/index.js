@@ -53,6 +53,9 @@ router.post('/image', function(req,res,next){
 
         sharp('./public/images/weapon_subpartcopy.png').extract({ width: 800, height: 890, left: 1120, top: 0 }).toFile('./public/images/weapon_subpart.png').then(function(new_file_info) {
           console.log("Image cropped and saved");
+          sharp('./public/images/weapon_subpartcopy.png').extract({ width: 1920, height: 880, left: 0, top: 0 }).toFile('./public/images/personnel_subpart.png').then(function(new_file_info) {
+            console.log("Image cropped and saved");
+            })
           })
       .catch(function(err) {
           console.log(err);
