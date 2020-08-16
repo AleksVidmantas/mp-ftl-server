@@ -48,11 +48,7 @@ router.post('/image', function(req,res,next){
         if (err) throw err;
           console.log(err);
 
-          fs.unlink('path/file.txt', (err) => {
-            if (err) throw err;
-            console.log('path/file.txt was deleted');
-            
-          });
+          
 
     //    console.log('source.txt was copied to destination.txt');
         
