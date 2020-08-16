@@ -42,14 +42,17 @@ router.post('/log', function(req,res){
         // cmd.curQueueSize = cmdStack.length;
         // console.log(cmd);
         // ws.send(JSON.stringify(cmd));
-        let msg = [];
-        for(let i = 0; i < cmdStack.length; i++){
-            msg.push(cmdStack[i])
-        }
-        cmdStack = []
+        
         // wss.connection.send(JSON.stringify(msg))
         wss.clients.forEach(function each(client){
+            console.log("client status: " +  client.readyState)
             if (client.readyState === WebSocket.OPEN) {
+                let msg = [];
+                for(let i = 0; i < cmdStack.length; i++){
+                    msg.push(cmdStack[i])
+                }
+                console.log("firing msg send")
+                cmdStack = []
                 client.send(JSON.stringify(msg));
             }
         })
