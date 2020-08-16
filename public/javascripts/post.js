@@ -185,8 +185,10 @@ let beamLeft = 0
 let mCoords = [[0,0],[0,0]]
 function genericImgPost(type,command,e,img){ //active referce to current button that is active , active1 is active crosshair, active2 is second
     //calculate where user click one
-   
-    var ratioX = e.target.naturalWidth / e.target.offsetWidth; //natty means images base, divided by pages image size, so like 1.4 times larger
+    var canvas  = document.getElementById('canvas'); //ROTATE AND DRAW IMAGE
+
+   console.log("Values"+ canvas.width +  " " + e.target.offsetWidth);
+    var ratioX = canvas.width / e.target.offsetWidth; //natty means images base, divided by pages image size, so like 1.4 times larger
     var ratioY = e.target.naturalHeight / e.target.offsetHeight; //higher val means higher scale
     console.log("Important value: "+ ratioX)
     var domX = e.x + window.pageXOffset - e.target.offsetLeft;
@@ -222,7 +224,7 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
          
 
                 if(window.matchMedia("max-width: 1200px)")){ //mobile beam 
-                    console.log("REAHEEDEF")
+                    // console.log("REAHEEDEF")
                     // beamtag.style.height = '20px';
                     // beamtag.style.width = 850/ratioX;//hardcoded and magic :(
                     // beamtag.style.top = ((e.pageY || e.clientY) -95)+ 'px';
@@ -261,7 +263,7 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
                 dx = ex - cx;
                 theta = Math.atan(dy/dx);
                 // theta *= 180/Math.PI // rads to degs
-                var canvas  = document.getElementById('canvas'); //ROTATE AND DRAW IMAGE
+                canvas  = document.getElementById('canvas'); //ROTATE AND DRAW IMAGE
                 // document.body.appendChild(beamtag);
             "images/beam.png"
                 image = document.getElementById("beamimg")
@@ -270,15 +272,16 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
                 
                 var element = canvas.getContext("2d");
                 element.save();
-                element.clearRect(0,0, canvas.width, canvas.height);
+                element.clearRect(0,0, element.width, element.height);
                 var background = new Image();
                 background.src = "/images/weapon_subpart.png";
 
                 // Make sure the image is loaded first otherwise nothing will draw.
                 background.onload = function(){
-                    ctx.drawImage(background,0,0);
-                    element.translate(beamLeft, beamTop)   
-                    console.log("Compare values, beamsLT" + beamLeft + " " + beamTop + " | " + ex + " " + ey)
+                    element.drawImage(background,0,0);
+                    element.translate(beamLeft*ratioX, ratioX*beamTop)   
+                    console.log("Compare values, beamsLT, at time of draw bl and bt" + beamLeft + " " + beamTop + " | " + ex + " " + ey + "Canvas dat: xy" +element.width + " " + element.height)
+                    
                 element.rotate(theta);
                 
                 element.drawImage(image, 0,0)//beamLeft,beamTop);
@@ -306,6 +309,7 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
                 const rect = document.getElementById("canvas").getBoundingClientRect()
                 beamLeft = e.clientX - rect.left
             beamTop = e.clientY - rect.top
+            console.log("BeamLeft and Top updated to: " + beamLeft + beamTop + "canvas dat ")
                 
                 tag.setAttribute("id","active1");
                 tag.style.position = 'absolute';
@@ -313,13 +317,15 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
                     tag.style.height = '190px';
                     tag.style.width = '190x';
                     tag.style.top = ((e.pageY || e.clientY) -95)+ 'px';
-                    tag.style.left = ((e.pageX || e.clientX) -95)+ 'px';
+                    tag.style.left = ((e.pageX || e.clientX) -95)+ 'px'; //-95px
+                    console.log("Clientvs other page " + e.clientX + " " + e.page )
                 }else{
                     tag.style.height = '140px';
                     tag.style.width = '140x';
                     tag.style.top = ((e.pageY || e.clientY) -40)+ 'px';
                     tag.style.left = ((e.pageX || e.clientX) -40)+ 'px';
                 }
+                console.log("Crosshair drawn to" + e.pageX + " or " + e.clientX)
                 document.body.appendChild(tag);
                 beamX = tag.x;
                 beamY = tag.y;

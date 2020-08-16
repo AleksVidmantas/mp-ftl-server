@@ -15,7 +15,7 @@ background.onload = function(){
     setInterval(function(){
         var background = new Image();
         background.src = "/images/weapon_subpart.png#" + new Date().getTime();
-        background.onload() = function(){
+        background.onload = function(){
             requestAnimationFrame(function(){
                 ctx.drawImage(background,0,0); 
             })
