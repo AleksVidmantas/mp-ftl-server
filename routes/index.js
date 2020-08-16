@@ -40,23 +40,23 @@ router.post('/image', function(req,res,next){
         fs.copyFile('./public/images/screenshot.png', './public/images/weapon_subpartcopy.png', (err) => {
           if (err) throw err;
             console.log(err);
-            if (err)  throw err;
-            let imgSS = fs.createWriteStream('./public/images/weapon_subpartcopy.png')
-            imgSS.on('close', function(path){
-                sharp('./public/images/weapon_subpartcopy.png').extract({ width: 800, height: 890, left: 1120, top: 0 }).toFile('./public/images/weapon_subpart.png').then(function(new_file_info) {
-                  console.log("Image cropped and saved");
-                  })
-              .catch(function(err) {
-                  console.log(err);
-              });
-            })
-    
+          
   
       //    console.log('source.txt was copied to destination.txt');
           
         });
-        
-       
+        if (err)  throw err;
+        // let imgSS = fs.createWriteStream('./public/images/screenshot.png')
+        // imgSS.on('close', function(path){
+
+        // })
+
+        sharp('./public/images/weapon_subpartcopy.png').extract({ width: 800, height: 890, left: 1120, top: 0 }).toFile('./public/images/weapon_subpart.png').then(function(new_file_info) {
+          console.log("Image cropped and saved");
+          })
+      .catch(function(err) {
+          console.log(err);
+      });
             
       });
 
