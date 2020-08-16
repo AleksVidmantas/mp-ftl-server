@@ -122,6 +122,23 @@ const canvasH = canvas.getBoundingClientRect().height;
             }
             
             item.classList.add("active");
+
+            var http = new XMLHttpRequest();
+            //determine if one or two cursors
+            var params = "type="+type+"&command="+item.id;
+            http.open('POST', "/command/log", true);
+
+            //Send the proper header information along with the request
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    // alert(http.responseText);
+                    console.log(http.responseText);
+                }
+            }
+            http.send(params);
+
         }
         
     }
@@ -394,15 +411,16 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
             
     if(activeCrossParam2){
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+activeCrossParam1.x+"&posY="+activeCrossParam1.y;
-       
-        mCoords[1][0] = xf;
-        mCoords[1][1] = yf;
+       console.log("Param2 true")
+        mCoords[1][0] = Math.floor((e.clientX - rect.left)*ratioX);
+        mCoords[1][1] = Math.floor((e.clientY - rect.top)*ratioX);
             
     }else{
+        console.log("Param2 true NOTS")
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+xf+"&posY="+yf;
-        mCoords[0][0] = xf;
-        mCoords[0][1] = yf;
+        mCoords[0][0] = Math.floor((e.clientX - rect.left)*ratioX);
+        mCoords[0][1] = Math.floor((e.clientY - rect.top)*ratioX);
     }
-    
+
    
 }
