@@ -412,14 +412,14 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
     if(activeCrossParam2){
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+activeCrossParam1.x+"&posY="+activeCrossParam1.y;
        console.log("Param2 true")
-        mCoords[1][0] = Math.floor((e.clientX - rect.left)*ratioX);
-        mCoords[1][1] = Math.floor((e.clientY - rect.top)*ratioX);
+        mCoords[1][0] = Math.floor(200+(e.clientX - rect.left)*ratioX);
+        mCoords[1][1] = Math.floor(1080-(e.clientY - rect.top)*ratioX);
             
     }else{
         console.log("Param2 true NOTS")
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+xf+"&posY="+yf;
-        mCoords[0][0] = Math.floor((e.clientX - rect.left)*ratioX);
-        mCoords[0][1] = Math.floor((e.clientY - rect.top)*ratioX);
+        mCoords[0][0] = Math.floor(200+(e.clientX - rect.left)*ratioX);
+        mCoords[0][1] = Math.floor(1080-(e.clientY - rect.top)*ratioX);
     }
 
    
