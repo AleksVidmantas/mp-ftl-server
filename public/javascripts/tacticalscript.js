@@ -119,7 +119,7 @@ function tacticalPost(item){
     item.classList.add("active");
     var http = new XMLHttpRequest();
    
-    var params = "type=personnel&command="+item.id;
+    var params = "type=tactical&command="+item.id;
     active = item.id
     http.open('POST', "/command/log", true);
 
