@@ -59,12 +59,12 @@ function setActive(item,type){
             //COMMUNICATION TO SERVER
             var http = new XMLHttpRequest();
             //determine if one or two cursors
-            var params = "type="+type+"&command="+item.id+"&active="+activeBtns[0].id+"&posX="+mCoords[0][0]+"&posY="+mCoords[0][1];
+            var params = "type="+type+"&command="+item.id+"&active="+activeBtns[0].id+"&posX="+(1120+mCoords[0][0])+"&posY="+mCoords[0][1];
             var activeCross2 = document.getElementById("active2");
             const canvasW = canvas.getBoundingClientRect().width;
 const canvasH = canvas.getBoundingClientRect().height;
             if(document.getElementById("beamlock").classList.contains("active") && activeCross2){
-                var params = "type="+type+"&command="+"beam"+item.id+"&active="+activeBtns[0].id+"&posX="+mCoords[0][0]+"&posY="+mCoords[0][1]+"&posX1="+mCoords[1][0]+"&posY1="+mCoords[1][1];
+                var params = "type="+type+"&command="+"beam"+item.id+"&active="+activeBtns[0].id+"&posX="+(1120+mCoords[0][0])+"&posY="+mCoords[0][1]+"&posX1="+(1120+mCoords[1][0])+"&posY1="+mCoords[1][1];
             }
             
 
@@ -412,13 +412,13 @@ function genericImgPost(type,command,e,img){ //active referce to current button 
     if(activeCrossParam2){
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+activeCrossParam1.x+"&posY="+activeCrossParam1.y;
        console.log("Param2 true")
-        mCoords[1][0] = Math.floor(1120+(e.clientX - rect.left)*ratioX);
+        mCoords[1][0] = Math.floor((e.clientX - rect.left)*ratioX);
         mCoords[1][1] = Math.floor((e.clientY - rect.top)*ratioX);
             
     }else{
         console.log("Param2 true NOTS")
         // var params = "type="+type+"&command="+command+"&active="+active+"&posX="+xf+"&posY="+yf;
-        mCoords[0][0] = Math.floor(1120+(e.clientX - rect.left)*ratioX);
+        mCoords[0][0] = Math.floor((e.clientX - rect.left)*ratioX);
         mCoords[0][1] = Math.floor((e.clientY - rect.top)*ratioX);
     }
 

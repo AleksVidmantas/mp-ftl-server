@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/personnel.css">    
-<script src="javascripts/post.js"></script>
+<!-- <script src="javascripts/post.js"></script> -->
 <body>  
-        <div class="grid-container  drone">
-                <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">Crew 1</button>
-                <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">Crew 2</button>
-                <button class="ftl-input grid-item" id="dr2dn" onclick="tacticalPost(this)">Crew 3</button>
-                <button class="ftl-input grid-item" id="dr2dn" onclick="etacticalPost(this)">Crew 4</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Crew 5</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Crew 6</button>    
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Crew 7</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Crew 8</button>
-                <br><br><br>
-                
+        <div class="grid-container parent">
+            <div class="grid-container  drone">
+                    <button class="ftl-input grid-item" id="c1" onclick="tacticalPost(this)">Crew 1</button>
+                    <button class="ftl-input grid-item" id="c2" onclick="tacticalPost(this)">Crew 2</button>
+                    <button class="ftl-input grid-item" id="c3" onclick="tacticalPost(this)">Crew 3</button>
+                    <button class="ftl-input grid-item" id="c4" onclick="tacticalPost(this)">Crew 4</button>
+                    <button class="ftl-input grid-item" id="c5" onclick="tacticalPost(this)">Crew 5</button>
+                    <button class="ftl-input grid-item" id="c6" onclick="tacticalPost(this)">Crew 6</button>    
+                    <button class="ftl-input grid-item" id="c7" onclick="tacticalPost(this)">Crew 7</button>
+                    <button class="ftl-input grid-item" id="c8" onclick="tacticalPost(this)">Crew 8</button>
+                    <br><br><br>
+                    
+            
+                </div>
+                <div class="grid-container  activities">
+                        <button class="ftl-input grid-item" id="tpsend" onclick="tacticalPost(this)">TP Send</button>
+                    <button class="ftl-input grid-item" id="rtstat" onclick="tacticalPost(this)">Return to Stations</button>    
+                    <button class="ftl-input grid-item" id="claldr" onclick="tacticalPost(this)">Close All Doors</button>
+                    <button class="ftl-input grid-item" id="tprt" onclick="tacticalPost(this)">TP Return</button>
+                    <button class="ftl-input grid-item" id="ss" onclick="tacticalPost(this)">Save Stations</button>
+                </div>
+
+            <canvas class="mobile" width=1920 hieght=880 id="canvas"></canvas>
+        </div>
+            <script src="javascripts/personnelscript.js"></script>
+            
         
-            </div>
-            <div class="grid-container  activities">
-                    <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">TP Send</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Return to Stations</button>    
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Close All Doors</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">TP Return</button>
-                <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">Save Stations</button>
-            </div>
 </body>
