@@ -88,7 +88,7 @@ canvas.addEventListener('click', function(e) {
     var http = new XMLHttpRequest();
     var ratioX = canvas.width / e.target.offsetWidth;
    
-    var params = "type=personnel&command=click"+"&active="+active+"&posX="+(1120+ratioX*(e.clientX - rect.left))+"&posY="+(ratioX*(e.clientY - rect.top));
+    var params = "type=tactical&command=click"+"&active="+active+"&posX="+(1120+ratioX*(e.clientX - rect.left))+"&posY="+(ratioX*(e.clientY - rect.top));
    
     http.open('POST', "/command/log", true);
 
