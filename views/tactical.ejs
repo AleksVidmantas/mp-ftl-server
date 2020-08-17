@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="stylesheets/tactical.css">    
-<script src="javascripts/post.js"></script>
+
 <body>
     <div class="desktop" id="left">
         <br>
             <div class="grid-container desktop drone">
-                    <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">+ Drone 1 +</button>
-                    <button class="ftl-input grid-item" id="dr2dn" onclick="tacticalPost(this)">+ Drone 2 +</button>
-                    <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">+ Drone 3 +</button>
+                    <button class="ftl-input grid-item" id="dr1up" onclick="tacticalPost(this)">+ Drone 1 +</button>
+                    <button class="ftl-input grid-item" id="dr2up" onclick="tacticalPost(this)">+ Drone 2 +</button>
+                    <button class="ftl-input grid-item" id="dr3up" onclick="tacticalPost(this)">+ Drone 3 +</button>
             
                     <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">- Drone 1 -</button>
                     <button class="ftl-input grid-item" id="dr2dn" onclick="tacticalPost(this)">- Drone 2 -</button>
@@ -28,56 +28,23 @@
         <div class="desktop noselect"><img src="images/tactical.png" id="tacImg1"></div>
     </div>
        
-    <div class="mobile noselect"><img src="images/tactical.png" id="tacImg2" ></div>
+    <canvas width=800 hieght=890 id="canvas"></canvas>
     <div class="grid-container mobile drone">
             <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">- Drone 1 -</button>
-            <button class="ftl-input grid-item" id="dr1dn" onclick="tacticalPost(this)">+ Drone 1 +</button>
+            <button class="ftl-input grid-item" id="dr1up" onclick="tacticalPost(this)">+ Drone 1 +</button>
             <button class="ftl-input grid-item" id="dr2dn" onclick="tacticalPost(this)">- Drone 2 -</button>
-            <button class="ftl-input grid-item" id="dr2dn" onclick="etacticalPost(this)">+ Drone 2 +</button>
+            <button class="ftl-input grid-item" id="dr2up" onclick="tacticalPost(this)">+ Drone 2 +</button>
             <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">- Drone 3 -</button>
-            <button class="ftl-input grid-item" id="dr3dn" onclick="tacticalPost(this)">+ Drone 3 +</button>    
+            <button class="ftl-input grid-item" id="dr3up" onclick="tacticalPost(this)">+ Drone 3 +</button>    
     
         </div>
         <div class="grid-container mobile activities">
-                <button class="ftl-input grid-item" id="hack" onclick="setActive(this)">Hack</button>
-                <button class="ftl-input grid-item" id="cloak" onclick="setActive(this)">Cloak</button>
-                <button class="ftl-input grid-item" id="mindcontrol" onclick="setActive(this)">Mind Control</button>
+                <button class="ftl-input grid-item" id="hack" onclick="tacticalPost(this)">Hack</button>
+                <button class="ftl-input grid-item" id="cloak" onclick="tacticalPost(this)">Cloak</button>
+                <button class="ftl-input grid-item" id="mindcontrol" onclick="tacticalPost(this)">Mind Control</button>
         </div>
         
-        <div style="text-align:center"> 
-                <button onclick="playPause()">Play/Pause</button> 
-                <button onclick="makeBig()">Big</button>
-                <button onclick="makeSmall()">Small</button>
-                <button onclick="makeNormal()">Normal</button>
-                <br><br>
-                <video id="video1" width="420">
-                  <source src="mov_bbb.mp4" type="video/mp4">
-                  <source src="http://localhost:8080/go.ogg" type="video/ogg">
-                  Your browser does not support HTML video.
-                </video>
-              </div> 
-              
-              <script> 
-              var myVideo = document.getElementById("video1"); 
-              
-              function playPause() { 
-                if (myVideo.paused) 
-                  myVideo.play(); 
-                else 
-                  myVideo.pause(); 
-              } 
-              
-              function makeBig() { 
-                  myVideo.width = 560; 
-              } 
-              
-              function makeSmall() { 
-                  myVideo.width = 320; 
-              } 
-              
-              function makeNormal() { 
-                  myVideo.width = 420; 
-              } 
-              </script> 
+
+        <script src="javascripts/tacticalscript.js"></script>
    
 </body>

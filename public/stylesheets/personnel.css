@@ -27,7 +27,7 @@ body {
             border-style: solid;
             border-radius:0px;
             border-color:#63ffa4;
-            height:120px;
+            height:190px;
             font-family:monospace;
             
         }
@@ -79,6 +79,7 @@ body {
             display: inline-grid;
             grid-template-columns: 50% 50%;
             width: 100%;
+            
         }
     
         .grid-container.activities button {
